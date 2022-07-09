@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
+import TopNav from "../Nav";
 
 const VendorPage = ()=>{
     const {id} = useParams()
@@ -38,6 +39,7 @@ const VendorPage = ()=>{
 
     return(
         <div>
+            <TopNav/>
             {
                 !vendorInfo&&
                 <h1>
@@ -54,6 +56,7 @@ const VendorPage = ()=>{
                     <h2>{vendorInfo.number}</h2>
                     <h3>{vendorInfo.peopleCurrent}/{vendorInfo.peopleNeeded}</h3>
                     <h2>{vendorInfo.description}</h2>
+                    <button>Enter chat</button>
                 </div>
             }
         </div>

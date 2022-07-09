@@ -9,7 +9,9 @@ const VendorList = ({vendors}) =>{
 
     return (
         <div className="container">
-            {list}
+            <div className='row g-3'>
+                {list}
+            </div>
         </div>
     )
 }

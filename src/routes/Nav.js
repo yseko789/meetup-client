@@ -1,36 +1,43 @@
 import {Link} from 'react-router-dom';
+import {AiOutlineSearch, AiOutlineMenu} from 'react-icons/ai'
+import '../style/nav.css'
 
-const TopNav = ({location}) =>{
-    return (
-      <nav className = 'container-fluid'>
-        <div className = 'row'>
-          {
-            (location === 'register' || location ==='login') &&
-            <div className = 'col-12 d-flex justify-content-start'>
-              <Link className = 'link' to = '/'>Vendor Search</Link>
-              
+const TopNav = ({location}) =>{ 
+    if(localStorage.getItem('username')){
+      return(
+        <div className='container sticky-top'>
+          <nav className='navbar navbar-expand-md navbar-light '>
+            <Link className='navbar-brand' to = '/'>Meetup</Link>
+            <AiOutlineMenu
+              data-bs-toggle = 'collapse'
+              data-bs-target = '#toggleMobileMenu'
+              aria-controls = 'toggleMobileMenu'
+              aria-expanded='false'
+              aria-label = 'Toggle navigation'
+              size = '30px'
+            />
+            <div className='collapse navbar-collapse' id = 'toggleMobileMenu'>
+              <ul className = 'navbar-nav ms-auto text-center'>
+                <li>
+                  <Link className='nav-link' to = '/'>Home</Link>
+                </li>
+                <li>
+                  <Link className='nav-link' to = '/vendor'>Search</Link>
+                </li>
+                <li>
+                  <Link className='nav-link' to = '/account'>Account</Link>
+                </li>
+                <li>
+                  <Link className='nav-link' to = '/auth/logout'>Logout</Link>
+                </li>
+              </ul>
             </div>
-          }
-          {
-            (location==='search'&&localStorage.getItem('username'))&&
-            <div className = 'col-12 d-flex justify-content-between'>
-              <Link className = 'link' to = '/'>Anime Search</Link>
-              <Link className='link' to='/account'>Hi, {localStorage.getItem('username')}</Link>
-              <Link className = 'link'to = '/auth/logout'>Logout</Link>
-            </div>
-          }
-          {
-            ((location==='search')&&!localStorage.getItem('username'))&&
-            <div className = 'col-12 d-flex justify-content-between'>
-              <Link className = 'link' to = '/'>Anime Search</Link>
-              <Link className = 'link'to = '/auth/login'>Login</Link>
-            </div>
-          }
-          
+          </nav>
         </div>
-      </nav>
-    )
-}
+      )
+    }
+  }
+
 
 
 

@@ -32,7 +32,7 @@ function Login(){
             localStorage.setItem('token', userResponse.token);
             localStorage.setItem('username', userResponse.username);
             //redirect to search page
-            navigate('/vendor');
+            navigate('/account/vendor');
         }catch(error)
         {
             console.log(error);

@@ -27,19 +27,23 @@ function SearchPage(){
 
     return(
         <div className="screen-search">
-            <TopNav location = "search"/>
-            <div className="container">
-                <div className = 'row'>
-                    <div className='input-group'>
-                    <input 
-                        className = 'form-control'
-                        type="search" 
-                        placeholder= 'Search Anime...'
-                        aria-label="Search"
-                        value = {vendorSearch}
-                        onChange = {(e)=>setVendorSearch(e.target.value)}
-                    />
-                    <button className="btn btn-primary btn-custom" type="button">Search</button>
+            <div className="sticky-top">
+                <TopNav location = "search"/>
+                <div className="container mb-3">
+                    <div className = 'row'>
+                        <div className='input-group '>
+                            <input 
+                                className = 'form-control'
+                                type="search" 
+                                placeholder= 'Search Vendor...'
+                                aria-label="Search"
+                                value = {vendorSearch}
+                                onChange = {(e)=>setVendorSearch(e.target.value)}
+                            />
+                            <div className="input-group-prepend">
+                                <button className="btn btn-primary btn-custom" type="button">Search</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
