@@ -16,7 +16,7 @@ import SearchPage from './routes/vendor/SearchPage'
 import VendorPage from './routes/vendor/VendorPage'
 import Account from './routes/account/Account'
 import MyVendors from './routes/account/MyVendors'
-import Chat from './routes/account/Chat'
+import Chat from './routes/Chat'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,10 +26,9 @@ root.render(
       <Route path = '/auth/register' element = {<Register/>}/>
       <Route path = '/auth/login' element = {<Login/>}/>
       <Route path = '/auth/logout' element = {<Logout/>}/>
+      <Route path = '/vendor/:id/chat' element = {<Chat/>}/>
       <Route path = '/vendor/:id' element = {<VendorPage/>}/>
       <Route path = '/vendor' element = {<SearchPage/>}/>
-      <Route path = '/account/vendor/:id/chat' element = {<Chat/>}/>
-      {/* <Route path = '/account/vendor/:id' element = {<MyVendorInfo/>}/> */}
       <Route path = '/account/vendor' element = {<MyVendors/>}/>
       <Route path = '/account' element = {<Account/>}/>
 

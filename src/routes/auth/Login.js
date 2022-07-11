@@ -31,8 +31,9 @@ function Login(){
             //store the token in local storage
             localStorage.setItem('token', userResponse.token);
             localStorage.setItem('username', userResponse.username);
+            localStorage.setItem('userId', userResponse.userId)
             //redirect to search page
-            navigate('/account/vendor');
+            navigate('/');
         }catch(error)
         {
             console.log(error);
@@ -41,7 +42,7 @@ function Login(){
     
     return (
         <div className = 'screen'>
-            <div className = 'container'>
+            <div className = 'container p-4'>
                 <div className = 'row text-center'>
                     <h1>Login</h1>
                 </div>

@@ -32,6 +32,7 @@ const Vendor = ({vendor})=>{
                 <div className = 'card-body'>
                     <div className = 'card-title'>
                         {vendorData.name}
+                        {vendorData.number}
                     </div>
                     <div className="d-flex card-text">
                         {vendorData.time}

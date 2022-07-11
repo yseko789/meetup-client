@@ -32,6 +32,7 @@ function Home(){
 
     const changeHandler = (e)=>{
         setVendorData({...vendorData, [e.target.name]: e.target.value})
+        console.log(e.target.value)
     }
 
     const createMyVendor = async()=>{
@@ -55,7 +56,7 @@ function Home(){
         // vendorData.peopleCurrent = Number(vendorData.peopleCurrent)
         // vendorData.peopleNeeded = Number(vendorData.peopleNeeded)
         e.preventDefault()
-        if(vendorData.peopleCurrent < vendorData.peopleNeeded){
+        if(Number(vendorData.peopleCurrent) < Number(vendorData.peopleNeeded)){
             createMyVendor()
             document.getElementById('addForm').submit()
         }else{

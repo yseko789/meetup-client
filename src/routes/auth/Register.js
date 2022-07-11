@@ -34,8 +34,9 @@ function Register(){
 
             localStorage.setItem('token', userResponse.token);
             localStorage.setItem('username', userResponse.username);
+            localStorage.setItem('userId', userResponse.userId)
 
-            navigate('/vendor')
+            navigate('/')
         }catch(error){
             console.log(error);
 
@@ -46,7 +47,7 @@ function Register(){
 
     return(
         <div className='screen'>
-            <div className='container'>
+            <div className='container p-4'>
                 <div className = 'row text-center'>
                     <h1>Register</h1>
                 </div>

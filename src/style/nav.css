@@ -1,5 +1,5 @@
-.topNav{
-    position:fixed;
-    z-index: 9999;
+.navContainer{
+    height: 10vh;
+    
 }
 
