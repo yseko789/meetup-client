@@ -1,5 +1,9 @@
 .navContainer{
+    background-color: #2D232E ;
     height: 10vh;
-    
 }
 
+.link{
+   color: #F1F0EA !important;
+   font-size: large;
+}

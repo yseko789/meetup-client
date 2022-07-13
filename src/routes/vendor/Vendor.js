@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from "react-router-dom"
+import '../../style/vendor.css'
 
 const Vendor = ({vendor})=>{
 
@@ -10,7 +11,7 @@ const Vendor = ({vendor})=>{
         number: vendor.number,
         peopleCurrent: vendor.peopleCurrent,
         peopleNeeded: vendor.peopleNeeded,
-        time: vendor.time,
+        time: new Date(vendor.time),
         location: vendor.location
     }
 
@@ -19,24 +20,28 @@ const Vendor = ({vendor})=>{
     }
 
     return(
-        // <div className="vendor d-flex flex-column" onClick={()=>clickHandler()}>
-        //     <h3>{vendorData.id}</h3>
-        //     <h3>{vendorData.time}</h3>
-        //     <h3>{vendorData.location}</h3>
-        //     <h2>{vendorData.name}</h2>
-        //     <h2>{vendorData.number}</h2>
-        //     <h3>`{vendorData.peopleCurrent}/{vendorData.peopleNeeded}`</h3>
-        // </div>
         <div className="col-6 col-md-4 col-lg-3" onClick = {()=>clickHandler()}>
-            <div className="card">
+            <div className="card vendor">
                 <div className = 'card-body'>
-                    <div className = 'card-title'>
-                        {vendorData.name}
-                        {vendorData.number}
+                    <div className = 'card-title text-center'>
+                        <div className="vendor-name">
+                            {vendorData.name}
+                        </div>
+                        <div className="vendor-number">
+                            {vendorData.number}
+                        </div>
                     </div>
-                    <div className="d-flex card-text">
-                        {vendorData.time}
-                        {vendorData.location}
+                    <div className="card-text text-center">
+                        <div className="vendor-date">
+                            {vendorData.time.toLocaleDateString()}
+                        </div>
+                        <div className="vendor-time">
+                            {vendorData.time.toLocaleTimeString()}
+                        </div>
+                        <div className="vendor-location">
+                            {vendorData.location}
+                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -8,6 +8,9 @@ import { AiOutlinePlus } from "react-icons/ai"
 function Home(){
 
     const [vendors, setVendors] = useState([])
+    const [vendorsHost, setVendorsHost] = useState([])
+    const [vendorsAttend, setVendorsAttend] = useState([])
+
     const fetchMyVendors = async()=>{
         const response = await fetch('/account/vendor',{
             method: 'GET',
@@ -18,6 +21,13 @@ function Home(){
         })
         const data = await response.json()
         setVendors(data)
+        data.forEach(vendor=>{
+            if(vendor.createdById == localStorage.getItem('userId')){
+                setVendorsHost(vendors =>[...vendors, vendor])
+            }else{
+                setVendorsAttend(vendors=>[...vendors,vendor])
+            }
+        })
     }
 
     const [vendorData, setVendorData] = useState({
@@ -84,6 +94,16 @@ function Home(){
                     </div>
                 </div>
             </div>
+            <VendorList vendors = {vendorsHost}/>
+
+            <div className='container p-3'>
+                <div className='row'>
+                    <h1 className='col-7'>
+                        Attending:
+                    </h1>
+                </div>
+            </div>
+            <VendorList vendors = {vendorsAttend}/>
 
             <div className='modal fade' id='add-modal' tabIndex={-1} aaria-labelledby='modal-title' aria-hidden='true'>
                 <div className='modal-dialog'>
@@ -155,7 +175,7 @@ function Home(){
                     </div>
                 </div>
             </div>
-            <VendorList vendors = {vendors}/>
+            
 
         </div>
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TopNav from '../Nav'
 import VendorList from './VendorList'
+import '../../style/search.css'
 
 
 function SearchPage(){
@@ -31,7 +32,7 @@ function SearchPage(){
                 <TopNav location = "search"/>
                 <div className="container mb-3">
                     <div className = 'row'>
-                        <div className='input-group '>
+                        <div className='input-group mt-3'>
                             <input 
                                 className = 'form-control'
                                 type="search" 
@@ -41,7 +42,7 @@ function SearchPage(){
                                 onChange = {(e)=>setVendorSearch(e.target.value)}
                             />
                             <div className="input-group-prepend">
-                                <button className="btn btn-primary btn-custom" type="button">Search</button>
+                                <button className="btn search-btn" type="button">Search</button>
                             </div>
                         </div>
                     </div>

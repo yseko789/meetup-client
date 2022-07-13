@@ -18,8 +18,8 @@ const MessageList = ({messages})=>{
     
     return (
         <div className="card-body">
-                {list}
-                <div ref = {bottomRef}/>
+            {list}
+            <div ref = {bottomRef}/>
         </div>
     )
 }

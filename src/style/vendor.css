@@ -1,0 +1,21 @@
+.vendor-name{
+    font-weight: bold ;
+    font-size: 20px;
+}
+
+.vendor-number{
+    font-size: 15px;
+}
+
+.vendor-time, .vendor-date, .vendor-location{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.vendor{
+    border-radius: 15%;
+}
+
+.vendor-additionalInfo{
+    border: black solid 1px;
+}

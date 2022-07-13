@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate} from "react-router-dom";
 import TopNav from "../Nav";
 import {BsThreeDots} from 'react-icons/bs'
+import { BiArrowBack } from "react-icons/bi";
 
 const VendorPage = ()=>{
     const {id} = useParams()
     const navigate = useNavigate();
 
     const [vendorInfo, setVendorInfo] = useState()
+    // const date = null
 
     const fetchVendorInfo = async()=>{
         const response = await fetch(`/vendor/${id}`,{
@@ -18,6 +20,7 @@ const VendorPage = ()=>{
             }
         })
         const data = await response.json();
+        // date = new Date(data.time)
         setVendorInfo(data)
     }
 
@@ -54,47 +57,48 @@ const VendorPage = ()=>{
             }
             {
                 vendorInfo &&
-                // <div className="vendor d-flex flex-column" onClick={()=>addVendor()}>
-                //     <h3>{vendorInfo._id}</h3>
-                //     <h3>{vendorInfo.time}</h3>
-                //     <h3>{vendorInfo.location}</h3>
-                //     <h2>{vendorInfo.name}</h2>
-                //     <h2>{vendorInfo.number}</h2>
-                //     <h3>{vendorInfo.peopleCurrent}/{vendorInfo.peopleNeeded}</h3>
-                //     <h2>{vendorInfo.description}</h2>
-                //     <button>Enter chat</button>
-                // </div>
-                <div className="container p-4">
-                    
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="d-flex justify-content-between ">
-                                <h1>{vendorInfo.name}</h1>
-                                <BsThreeDots size={'20px'}/>
+                <div className="container mt-3">
+                        <div className="card vendorPage">
+                            <div className="card-header">
+                                <div className="d-flex justify-content-between">
+                                    <BiArrowBack onClick = {()=>navigate('/')}/>
+                                    <BsThreeDots/>
+                                </div>
+                            </div>
+                            <div className = 'card-body'>
+                                <div className = 'card-title text-center'>
+                                    <div className="vendor-name">
+                                        {vendorInfo.name}
+                                    </div>
+                                    <div className="vendor-number">
+                                        {vendorInfo.number}
+                                    </div>
+                                </div>
+                                <div className="card-text text-center">
+                                    <div className="vendor-date">
+                                        {(new Date(vendorInfo.date)).toLocaleDateString()}
+                                    </div>
+                                    <div className="vendor-time">
+                                        {(new Date(vendorInfo.date)).toLocaleTimeString()}
+                                    </div>
+                                    <div className="vendor-location">
+                                        {vendorInfo.location}
+                                    </div>
+                                    <div className="vendor-additionalInfo mt-2 p-2">
+                                        <div className="vendor-createdBy">
+                                            Created by: {vendorInfo.createdByUsername}
+                                        </div>
+                                        <div className="vendor-description">
+                                            {vendorInfo.description}
+                                        </div>
+                                    </div>
+                                    <div className="buttons d-flex justify-content-around mt-3">
+                                        <button className="add-btn btn" onClick = {()=>addVendor()}>Add to attending vendors</button>
+                                        <button className="enter-chat-btn btn" onClick={()=>enterChat()}>Enter chat</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="col-12">
-                            <h4>Created by: {vendorInfo.createdBy}</h4>
-                        </div>
-                        <div className="col-12">
-                            <h1>{vendorInfo.number}</h1>
-                        </div>
-                        <div className="col-12">
-                            <h2>{vendorInfo.time}</h2>
-                        </div>
-                        <div className="col-12">
-                            <h2>{vendorInfo.location}</h2>
-                        </div>
-                        <div className="col-12">
-                            <h1>{`${vendorInfo.peopleCurrent}/${vendorInfo.peopleNeeded}`}</h1>
-                        </div>
-                        <div className="col-12">
-                            <h3>{vendorInfo.description}</h3>
-                        </div>
-                    </div>
-                    <button className="btn" onClick = {()=>addVendor()}>Add to attending vendors</button>
-                    <button className="btn" onClick={()=>enterChat()}>Enter chat</button>
-
                 </div>
             }
         </div>

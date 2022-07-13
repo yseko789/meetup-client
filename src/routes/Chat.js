@@ -5,15 +5,16 @@ import '../style/chat.css'
 import TopNav from './Nav'
 import {BiArrowBack} from 'react-icons/bi'
 import MessageList from './MessageList'
-
 const socket = io('http://localhost:3001')
 
-const Chat = ()=>{
 
+const Chat = ()=>{
+    
     const {id} = useParams()
 
     
     socket.on('connect', function(){
+        console.log('connect')
         socket.emit('join-room', id)
     })
     
@@ -55,9 +56,9 @@ const Chat = ()=>{
     }
 
     return (
-        <div className='container'>
+        <div>
             <TopNav/>
-            <div >
+            <div className='container' >
                 <div className='card mx-auto cardContainer'>
                     <div className = 'card-header bg-transparent'>
                         <div className='navbar navbar-expand p-0'>
