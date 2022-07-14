@@ -1,6 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom"
 import '../../style/vendor.css'
 
+
 const Vendor = ({vendor})=>{
 
     const navigate = useNavigate()
@@ -16,7 +17,16 @@ const Vendor = ({vendor})=>{
     }
 
     const clickHandler = ()=>{
-       navigate(`/vendor/${vendorData.id}`)
+        navigate(
+            `/vendor/${vendorData.id}`, 
+            // {
+            //     state: {
+            //         host
+            //     }
+            // }
+        )
+
+        
     }
 
     return(
