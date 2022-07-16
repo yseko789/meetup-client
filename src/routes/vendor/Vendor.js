@@ -18,12 +18,7 @@ const Vendor = ({vendor})=>{
 
     const clickHandler = ()=>{
         navigate(
-            `/vendor/${vendorData.id}`, 
-            // {
-            //     state: {
-            //         host
-            //     }
-            // }
+            `/vendor/${vendorData.id}`,
         )
 
         

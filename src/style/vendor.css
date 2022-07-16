@@ -1,6 +1,9 @@
 .vendor-name{
     font-weight: bold ;
     font-size: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .vendor-number{

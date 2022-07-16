@@ -1,22 +1,24 @@
 import {io} from 'socket.io-client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import {Link, useParams} from 'react-router-dom'
 import '../style/chat.css'
 import TopNav from './Nav'
 import {BiArrowBack} from 'react-icons/bi'
 import MessageList from './MessageList'
-const socket = io('http://localhost:3001')
+
+
 
 
 const Chat = ()=>{
+    let socket = useRef()
     
     const {id} = useParams()
 
     
-    socket.on('connect', function(){
-        console.log('connect')
-        socket.emit('join-room', id)
-    })
+    // socket.on('connect', function(){
+    //     console.log('connect')
+    //     socket.emit('join-room', id)
+    // })
     
     const [message, setMessage] = useState("")
 
@@ -26,23 +28,27 @@ const Chat = ()=>{
         setMessage(e.target.value)
     }
 
+    useEffect(()=>{
+        socket.current = io('http://localhost:3001')
+        socket.current.on('connect', ()=>{
+            console.log('connect')
+            socket.current.emit('join-room', id)
+        })
+    }, [])
+
 
     useEffect(()=>{
-
-        socket.on("past-messages",(data)=>{
+        socket.current.on("past-messages",(data)=>{
             setMessages(data)
-            
-            
         })
-        socket.on("receive-message", (data)=>{
+        socket.current.on("receive-message", (data)=>{
             setMessages(messages=>[...messages, data])
-
         })
     },[socket])
     
     
     const sendMessage = ()=>{
-        socket.emit("send-message", 
+        socket.current.emit("send-message", 
             {
                 room: id,
                 message:{

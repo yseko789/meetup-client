@@ -35,7 +35,7 @@ root.render(
           </ProtectedRoutes>
         }
       /> */}
-      <Route path = '/vendor/:id/chat' elemment = {<Chat/>}/>
+      <Route path = '/vendor/:id/chat' element = {<Chat/>}/>
       <Route path = '/vendor/:id' element = {<VendorPage/>}/>
       <Route path = '/vendor' element = {<SearchPage/>}/>
       <Route path = '/account' element = {<Account/>}/>

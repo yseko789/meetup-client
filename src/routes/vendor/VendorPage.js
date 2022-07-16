@@ -49,7 +49,7 @@ const VendorPage = ()=>{
         setVendorInfo(data)
     }
 
-    const enterChat = async()=>{
+    const enterChat = ()=>{
         navigate(`/vendor/${id}/chat`)
     }
 
