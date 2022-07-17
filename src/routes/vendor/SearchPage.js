@@ -42,7 +42,7 @@ function SearchPage(){
                                 onChange = {(e)=>setVendorSearch(e.target.value)}
                             />
                             <div className="input-group-prepend">
-                                <button className="btn search-btn" type="button">Search</button>
+                                <button className="btn custom-btn" type="button">Search</button>
                             </div>
                         </div>
                     </div>

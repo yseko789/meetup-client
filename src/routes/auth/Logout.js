@@ -10,9 +10,13 @@ const Logout = ()=>{
     },[]);
 
     return(
-        <div>
-            <h1>Successfully logged out</h1>
-            <Link to='/auth/login'>Login</Link>
+         <div className = 'screen'>
+            <div className = 'container p-4'>
+                <div className = 'row text-center'>
+                    <h1>Successfully logged out</h1>
+                    <Link to='/auth/login'>Login</Link>
+                </div>
+            </div>
         </div>
     )
 }

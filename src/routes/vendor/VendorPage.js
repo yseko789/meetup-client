@@ -35,7 +35,6 @@ const VendorPage = ()=>{
         }else if(userStatus === "none"){
             vendorInfo.peopleCurrent += 1
         }
-        console.log({vendorInfo, userStatus})
         const response = await fetch(`/vendor/${id}`,{
             method: 'PATCH',
             headers: {
@@ -45,8 +44,8 @@ const VendorPage = ()=>{
             body:JSON.stringify({vendorInfo, userStatus})
         })
         const data = await response.json()
-        console.log(data)
-        setVendorInfo(data)
+        setVendorInfo(data.vendor)
+        setUserStatus(data.userStatus)
     }
 
     const enterChat = ()=>{
@@ -81,6 +80,9 @@ const VendorPage = ()=>{
                                     <div className="vendor-number">
                                         {vendorInfo.number}
                                     </div>
+                                    <div className="vendor-number-people">
+                                        Count: {vendorInfo.peopleCurrent}/{vendorInfo.peopleNeeded}
+                                    </div>
                                 </div>
                                 <div className="card-text text-center">
                                     <div className="vendor-date">
@@ -104,21 +106,21 @@ const VendorPage = ()=>{
                                     {
                                         userStatus==="host"&&
                                         <div className="buttons d-flex justify-content-around mt-3">
-                                            <button className="btn">Edit</button>
-                                            <button className="enter-chat-btn btn" onClick={()=>enterChat()}>Enter chat</button>
+                                            <button className="custom-secondary-btn btn">Edit</button>
+                                            <button className="custom-btn btn" onClick={()=>enterChat()}>Enter chat</button>
                                         </div>
                                     }
                                     {
                                         userStatus ==="attendee"&&
                                         <div className="buttons d-flex justify-content-around mt-3">
-                                            <button className="btn" onClick={()=>editVendor()}>Cancel</button>
-                                            <button className="enter-chat-btn btn" onClick={()=>enterChat()}>Enter chat</button>
+                                            <button className="btn btn-secondary" onClick={()=>editVendor()}>Cancel</button>
+                                            <button className="custom-btn btn" onClick={()=>enterChat()}>Enter chat</button>
                                         </div>
                                     }
                                     {
                                         userStatus === "none"&&
                                         <div className="buttons d-flex justify-content-around mt-3">
-                                            <button className="add-btn btn" onClick = {()=>editVendor()}>Add to attending vendors</button>
+                                            <button className="custom-btn btn" onClick = {()=>editVendor()}>Add to attending vendors</button>
                                         </div>
                                     }
                                     

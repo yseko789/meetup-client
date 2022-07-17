@@ -30,6 +30,7 @@ const Account = ()=>{
             },
             body: JSON.stringify(userData)
         })
+        navigate('/')
     }
 
     const changeHandler = (e)=>{
@@ -53,13 +54,9 @@ const Account = ()=>{
             }
             {
                 userData&&
-                // <div className="account d-flex flex-column" >
-                //     <h3>{accountInfo.user.username}</h3>
-                //     <h3>{accountInfo.user.email}</h3>
-                // </div>
                 <div>
                     <TopNav/>
-                    <div className="container">
+                    <div className="container p-3">
                         <div className="row">
                             <div className="d-flex flex-column">
                                 <h1 className="col-12">Account Details</h1>
@@ -82,7 +79,7 @@ const Account = ()=>{
                                     <input type = 'password' name = 'password' className="form-control" value={userData.password} onChange={changeHandler}/>
                                 </div> */}
                                 <div className="input-group mb-4">
-                                    <button className='btn col-12 btn-light' type='button' onClick={editUserData}>
+                                    <button className='btn col-12 custom-btn' type='button' onClick={editUserData}>
                                         Save
                                     </button>
                                 </div>

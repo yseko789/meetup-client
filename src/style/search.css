@@ -1,16 +1,9 @@
-.search-btn{
+.custom-btn{
     background-color: #474448;
     color: #F1F0EA !important;
 }
 
-.add-btn{
-    background-color: #474448;
-    color: #F1F0EA !important;
-    font-size: 12px;
-}
-
-.enter-chat-btn{
-    background-color: #474448;
-    color: #F1F0EA !important;
-    font-size: 12px;
+.custom-secondary-btn{
+    background-color: #E0DDCF;
+    color: #474448 !important;
 }

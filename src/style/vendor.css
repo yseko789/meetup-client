@@ -8,6 +8,12 @@
 
 .vendor-number{
     font-size: 15px;
+    font-weight: bold;
+}
+
+.vendor-number-people{
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .vendor-time, .vendor-date, .vendor-location{

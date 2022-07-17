@@ -35,6 +35,9 @@ const Vendor = ({vendor})=>{
                         <div className="vendor-number">
                             {vendorData.number}
                         </div>
+                        <div className="vendor-number-people">
+                            Count: {vendorData.peopleCurrent}/{vendorData.peopleNeeded}
+                        </div>
                     </div>
                     <div className="card-text text-center">
                         <div className="vendor-date">

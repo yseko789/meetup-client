@@ -4,9 +4,10 @@ import VendorList from './vendor/VendorList'
 
 import {useEffect, useState} from 'react'
 import { AiOutlinePlus } from "react-icons/ai"
+import {useNavigate} from 'react-router-dom'
 
 function Home(){
-
+    const navigate = useNavigate()
     const [vendors, setVendors] = useState([])
     const [vendorsHost, setVendorsHost] = useState([])
     const [vendorsAttend, setVendorsAttend] = useState([])
@@ -89,7 +90,7 @@ function Home(){
                         size='30px'
                         data-bs-toggle='modal'
                         data-bs-target='#add-modal'
-                    />
+                        />
                          
                     </div>
                 </div>
@@ -101,6 +102,12 @@ function Home(){
                     <h1 className='col-7'>
                         Attending:
                     </h1>
+                    <div className='col-5 d-flex justify-content-end'>
+                        <AiOutlinePlus
+                        size='30px'
+                        onClick={()=>navigate('/vendor')}
+                        />
+                    </div>
                 </div>
             </div>
             <VendorList vendors = {vendorsAttend}/>
@@ -166,7 +173,7 @@ function Home(){
                                 
                             
                                 <div className='modal-footer'>
-                                    <button className='btn' type = 'submit'>
+                                    <button className='btn custom-btn' type = 'submit'>
                                         Create
                                     </button>
                                 </div>

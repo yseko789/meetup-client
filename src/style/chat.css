@@ -5,3 +5,20 @@
 .card-body{
     overflow-y: scroll;
 }
+
+.message{
+    font-size: 20px;
+    background-color: #FFFAFA;
+}
+
+.message-user{
+    font-size: 12px;
+}
+
+.message-avatar{
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    background-color: #474448;
+    color: #F1F0EA;
+}

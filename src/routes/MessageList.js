@@ -11,8 +11,9 @@ const MessageList = ({messages})=>{
     }, [messages])
 
     const list = messages.map((message, index)=>{
+        const isSender = message.createdByUsername===localStorage.getItem('username')
         return(
-            <Message content = {message.content} isSender={message.createdByUsername} key = {index}/>
+            <Message createdByUsername = {message.createdByUsername}content = {message.content} isSender={isSender} key = {index}/>
         )
     })
     
